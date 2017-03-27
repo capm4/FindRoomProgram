@@ -31,9 +31,8 @@ public class IOMethod {
         System.out.println("**********************************************");
         System.out.println("| Для переходу по меню вибирайте (1,2..)     |");
         System.out.println("| 1. Пошук кімнат за вартістю                |");
-        System.out.println("| 2. Пошук кімнат за містом розташування     |");
-        System.out.println("| 3. Пошук кімнат за к-стю осіб              |");
-        System.out.println("| 4. Пошук кімнат за вказаними параметрами   |");
+        System.out.println("| 2. Пошук кімнат за к-стю осіб              |");
+        System.out.println("| 3. Пошук кімнат за вказаними параметрами   |");
         System.out.println("| Повернутись в попереднє меню введіть 'ret' |");
         System.out.println("| Щоб вийти введіть 'q'                      |");
     }
@@ -105,33 +104,15 @@ public class IOMethod {
                 }
                 break;
             case 2:
-                roomParams.put(Fields.ROOM_NAME, choice);
-                Set<Room> foundroomByName = ctr.findRoom(roomParams);
-                if (foundroomByName.isEmpty()){
-                    System.out.println("*****************************************");
-                    System.out.println("| в даному готелі номерів немає         |");
-                    System.out.println("| повторіть спробу                      |");
-                    System.out.println("*****************************************");
-                    try{
-                        findRoomParams (seargMetodRoom, choice);
-                    }catch (NullPointerException e){
-                        System.out.println(e.getMessage());
-                    }
-                }
-                else{
-                    returnSet = foundroomByName;
-                }
-                break;
-            case 3:
                 roomParams.put(Fields.ROOM_PERSONS, choice);
                 Set<Room> foundroomByPerson = ctr.findRoom(roomParams);
                 if (foundroomByPerson.isEmpty()){
                     System.out.println("**********************************************");
                     System.out.println("| номери для даної к-сті чоловік ми не знайшли |");
-                    System.out.println("| повторіть спробу                           |");
+                    System.out.println("| повторіть спробу                             |");
                     System.out.println("**********************************************");
                     try{
-                        findRoomParams (seargMetodRoom, choice);
+                        returnSet = null;
                     }catch (NullPointerException e){
                         System.out.println(e.getMessage());
                     }

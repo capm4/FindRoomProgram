@@ -1,6 +1,5 @@
 package controller;
 
-
 import DAO.HotelDAO;
 import DAO.RoomDAO;
 import DAO.UserDAO;

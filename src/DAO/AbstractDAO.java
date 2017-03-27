@@ -1,6 +1,5 @@
 package DAO;
 
-
 import com.google.gson.Gson;
 import model.Hotel;
 import model.Room;
@@ -18,6 +17,7 @@ import java.util.TreeSet;
 public abstract class AbstractDAO<T> {
 
     private String filePath;
+
     Gson gson = new Gson();
 
     public void insert(T itemToInsert) {
@@ -76,5 +76,5 @@ public abstract class AbstractDAO<T> {
 
     public Set<T> getAll() { return null; }
 
-}
 
+}

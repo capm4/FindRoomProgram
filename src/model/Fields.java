@@ -1,8 +1,6 @@
 package model;
 
-/**
- * Created by user on 31.01.2017.
- */
+
 public class Fields {
     public static final String ID = "id";
     public static final String USER_LOGIN = "userLogin";

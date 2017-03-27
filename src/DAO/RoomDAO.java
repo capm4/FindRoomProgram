@@ -1,7 +1,6 @@
 package DAO;
 
-import model.Fields;
-import model.Room;
+import model.*;
 
 import java.io.*;
 import java.util.Map;
@@ -45,22 +44,23 @@ public class RoomDAO extends AbstractDAO<Room> {
 
         if (!(neededID == null || neededID.isEmpty())) {
             long castedID = Long.valueOf(neededID);
-            roomStream = roomStream.filter(room -> room.getId() == castedID);
+            roomStream = getAll().stream().filter(room -> room.getId() == castedID);
         }
 
         if (!(neededName == null || neededName.isEmpty())) {
-            roomStream = roomStream.filter(room -> room.getName().toLowerCase().equals(neededName));
+            roomStream = getAll().stream().filter(room -> room.getName().toLowerCase().equals(neededName));
         }
 
         if (!(neededPrice == null || neededPrice.isEmpty())) {
             int castedPrice = Integer.valueOf(neededPrice);
-            roomStream = roomStream.filter(room -> room.getPrice() == castedPrice);
+            roomStream = getAll().stream().filter(room -> room.getPrice() == castedPrice);
         }
 
         if (!(neededPersons == null || neededPersons.isEmpty())) {
             int castedPersons = Integer.valueOf(neededPersons);
-            roomStream = roomStream.filter(room -> room.getPersons() == castedPersons);
+            roomStream = getAll().stream().filter(room -> room.getPersons() == castedPersons);
         }
+
 
         return roomStream.collect(Collectors.toSet());
     }

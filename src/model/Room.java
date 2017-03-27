@@ -1,6 +1,5 @@
 package model;
 
-
 public class Room implements Comparable<Room>{
     private long id;
     private String name;

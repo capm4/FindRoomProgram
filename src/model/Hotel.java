@@ -11,6 +11,7 @@ public class Hotel implements Comparable<Hotel>{
     private String city;
     public static long idCounter = 0;
 
+
     public Hotel(String name, String city) {
         this.roomSet = new TreeSet<>(); //When creating Hotel we just create empty new RoomSet
         this.id = idCounter++;

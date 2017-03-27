@@ -55,7 +55,7 @@ public class IOMenu {
             retunrnTo("ret", 3);
         }
         invalidInput(1,5,choiceInt,3);
-        if (1<= choiceInt && choiceInt <=3){
+        if (1<= choiceInt && choiceInt <=2){
             findRooms(choiceInt);
         }
         else{
@@ -64,7 +64,7 @@ public class IOMenu {
     }
 
     private void findRoomFourParam (int choiceInt){
-        if(choiceInt == 4){
+        if(choiceInt == 3){
             System.out.println("**********************************************");
             System.out.println("*              Критерії пошуку               *");
             System.out.println("**********************************************");
@@ -81,15 +81,12 @@ public class IOMenu {
         }
     }
 
-    private void findRooms (int seargMetodRoom){
+    protected void findRooms (int seargMetodRoom){
         String seargParam = "";
             if (seargMetodRoom == 1) {
                 seargParam = "вартість";
             }
             else if (seargMetodRoom == 2) {
-                seargParam = "назву готелю";
-            }
-            else if (seargMetodRoom == 3) {
                 seargParam = "К-сть осіб";
             }
 
@@ -102,17 +99,23 @@ public class IOMenu {
         choice = scanner.nextLine();
         exit(choice);
         retunrnTo(choice, 3);
+        int choiceInt;
         try{
-            int choiceInt = Integer.parseInt(choice);
+            choiceInt = Integer.parseInt(choice);
         }catch (NumberFormatException e){
             System.out.println("-------Ви Ввели не вірне значення повторіть спробу-------");
             retunrnTo("ret", 3);
         }
+        choiceInt = Integer.parseInt(choice);
+        if(seargMetodRoom == 2 && choiceInt> 3){
+            System.out.println("-------Ви Ввели не вірне значення повторіть спробу-------");
+            retunrnTo("ret", 3);
+        }
         Set<Room> setRoom = IOmet.findRoomParams(seargMetodRoom, choice);
-        roomfindParams(setRoom);
+            roomfindParams(setRoom);
     }
 
-    protected void roomfindParams(Set<Room> name){ //TODO should we change access to private?
+    private void roomfindParams(Set<Room> name){
         int rowCount = 0;
         System.out.println("***********************************");
         System.out.println("*     Скисок найдених номерів     *");
@@ -139,7 +142,7 @@ public class IOMenu {
         reservRoom(paramFindRoom, name);
     }
 
-    public void reservRoom(String choice, Set<Room> name){ //TODO should we change access to private?
+    private void reservRoom(String choice, Set<Room> name){
         Long choiceInt = null;
         try{
             choiceInt = Long.parseLong(choice);

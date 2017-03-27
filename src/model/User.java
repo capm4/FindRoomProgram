@@ -1,8 +1,6 @@
 package model;
 
-/**
- * Created by user on 31.01.2017.
- */
+
 public class User implements Comparable<User>{
     private long id;
     private String login;

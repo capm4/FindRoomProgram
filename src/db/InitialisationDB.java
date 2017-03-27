@@ -1,5 +1,8 @@
-package DAO;
+package db;
 
+import DAO.HotelDAO;
+import DAO.RoomDAO;
+import DAO.UserDAO;
 import model.Hotel;
 import model.Room;
 import model.User;
